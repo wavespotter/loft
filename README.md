@@ -1,7 +1,7 @@
 # Usage
 
 ```bash
-npx @sofarocean/code-loft --terraform-dir <dirname> --pre-apply <script> --post-apply <script> --deploy-env dev
+npx @sofarocean/code-loft deploy --terraform-dir <dirname> --pre-apply <script> --post-apply <script> --deploy-env dev
 ```
 
 Running this command from your local machine or on a CICD server (such as with Github Actions) will:

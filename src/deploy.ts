@@ -5,7 +5,6 @@ import fs from "fs";
 import inquirer from "inquirer";
 
 export default async function deploy(args: any, branch: string) {
-  console.log("\n\n");
   const _env = args.deployEnv;
   if (!_env) {
     console.error("--deploy-env must be set.");
@@ -23,6 +22,8 @@ export default async function deploy(args: any, branch: string) {
     }
   }
 
+  console.log("\n\n");
+
   // Force env to lowercase so it works with S3 bucket names and other stuff
   const env = _env.toLowerCase();
 
@@ -36,7 +37,7 @@ export default async function deploy(args: any, branch: string) {
         type: "confirm",
         name: "confirm",
         message: `You are attempting to deploy from git branch ${chalk.yellow.bold(
-          branch
+          branch !== "" ? branch : "<no branch>"
         )} to environment ${chalk.blue.bold(
           env
         )}. Are you sure you want to continue?`

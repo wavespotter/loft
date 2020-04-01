@@ -1,17 +1,28 @@
 # Usage
 
+## `deploy`
+
 ```bash
-npx @sofarocean/code-loft deploy --terraform-dir <dirname> --pre-apply <script> --post-apply <script> --deploy-env dev
+npx @sofarocean/code-loft deploy [--pre-apply <script>] [--post-apply <script>]
 ```
 
-Running this command from your local machine or on a CICD server (such as with Github Actions) will:
+Running this command from your local machine or on a CI/CD server (such as with Github Actions) will:
 
+- Infer the environment (`dev`, `staging`, or `prod`) frome the current git branch
 - Load environment variables from the corresponding .env file for your chosen deploy environment
 - Initialize Terraform and select a workspace corresponding to the chosen deploy environment.
-- Run your pre-apply script
+- Run your pre-apply script if specified
 - Run `terraform apply` with the `.tfvars` corresponding to the chosen deploy environment
-- Run your post-apply script
+- Run your post-apply script if specified
 
-## In CI
+The deployment environment can be overridden with the `-d` or `--deploy-env` option.
 
-When running on a CI server, you can set the `-a` option to auto-approve the Terraform changes.
+For a full list of options, run:
+
+```bash
+npx @sofarocean/code-loft deploy -h
+```
+
+### On a CI/CD server
+
+When running on a CI/CD server, you can set the `-a` or `--auto-approve` option to auto-approve the Terraform changes.

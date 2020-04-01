@@ -2,8 +2,9 @@ import { exec, spawn } from "child-process-promise";
 import chalk from "chalk";
 import path from "path";
 import fs from "fs";
+import inquirer from "inquirer";
 
-export default async function build(args: any) {
+export default async function deploy(args: any, branch: string) {
   console.log("\n\n");
   const _env = args.deployEnv;
   if (!_env) {
@@ -26,6 +27,27 @@ export default async function build(args: any) {
   const env = _env.toLowerCase();
 
   process.env.DEPLOYMENT_ENVIRONMENT = env;
+
+  /** If branch does not match deploy environment name, as for confirmation
+   *  before continuing */
+  if (branch !== env) {
+    const { confirm } = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "confirm",
+        message: `You are attempting to deploy from git branch ${chalk.yellow.bold(
+          branch
+        )} to environment ${chalk.blue.bold(
+          env
+        )}. Are you sure you want to continue?`
+      }
+    ]);
+
+    if (!confirm) {
+      console.error(chalk.red("Deployment cancelled."));
+      process.exit(1);
+    }
+  }
 
   console.log(
     `Building and deploying infrastructure for ${chalk.blue.bold(

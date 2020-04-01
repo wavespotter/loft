@@ -120,6 +120,8 @@ export default async function build(args: any) {
         shell: true,
         stdio: "inherit"
       });
+
+      console.log(`\n\n✨ ${chalk.green.bold("Deployment was sucessful!")} ✨`);
     } catch (e) {
       console.error(chalk.red("Post-apply script failed!"));
       process.exit(1);

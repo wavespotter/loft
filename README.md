@@ -11,3 +11,7 @@ Running this command from your local machine or on a CICD server (such as with G
 - Run your pre-apply script
 - Run `terraform apply` with the `.tfvars` corresponding to the chosen deploy environment
 - Run your post-apply script
+
+## In CI
+
+When running on a CI server, you can set the `-a` option to auto-approve the Terraform changes.

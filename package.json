@@ -1,6 +1,6 @@
 {
   "name": "@sofarocean/code-loft",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Standard build script combining Terraform and custom pre- and post- deploy options",
   "main": "build/index.js",
   "scripts": {

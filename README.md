@@ -27,6 +27,20 @@ npx @sofarocean/code-loft deploy -h
 
 When running on a CI/CD server, you can set the `-a` or `--auto-approve` option to auto-approve the Terraform changes.
 
+## Alias
+
+If you find yourself using `code-loft` frequently from the command line, you can create an alias by adding an entry to your `~/.profile`, `~/.bashrc`, or similar:
+
+```bash
+alias code-loft='npx @sofarocean/code-loft'
+```
+
+And then running commands from any directory with:
+
+```bash
+code-loft
+```
+
 # TODO
 
 ## `promote`

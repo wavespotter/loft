@@ -25,6 +25,8 @@ export default async function build(args: any) {
   // Force env to lowercase so it works with S3 bucket names and other stuff
   const env = _env.toLowerCase();
 
+  process.env.DEPLOYMENT_ENVIRONMENT = env;
+
   console.log(
     `Building and deploying infrastructure for ${chalk.blue.bold(
       env

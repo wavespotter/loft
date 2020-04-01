@@ -1,6 +1,6 @@
 {
   "name": "@sofarocean/code-loft",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Standard build script combining Terraform and custom pre- and post- deploy options",
   "main": "build/index.js",
   "scripts": {
@@ -16,14 +16,16 @@
   "author": "Sam Kronick <sam.kronick@sofarocean.com>",
   "license": "ISC",
   "dependencies": {
-    "@types/child-process-promise": "^2.2.1",
-    "@types/inquirer": "^6.5.0",
-    "@types/node": "11.9.3",
     "chalk": "^3.0.0",
     "child-process-promise": "^2.2.1",
     "commander": "^5.0.0",
     "dotenv": "^8.2.0",
-    "inquirer": "^7.1.0",
+    "inquirer": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/child-process-promise": "^2.2.1",
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "11.9.3",
     "nodemon": "^2.0.2",
     "ts-node": "8.0.2",
     "typescript": "^3.8.2"

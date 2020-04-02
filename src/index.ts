@@ -3,10 +3,12 @@ import { exec } from "child-process-promise";
 import { program } from "commander";
 
 import deploy from "./deploy";
+import promote from "./promote";
 
 (async function main() {
-  const { stdout: _branch } = await exec("git branch --show-current");
-  const branch = sanitizeBranch(_branch);
+  let { stdout: currentBranch } = await exec("git branch --show-current");
+  currentBranch = currentBranch.trim();
+  const currentEnv = sanitizeBranch(currentBranch);
 
   program
     .command("deploy")
@@ -15,7 +17,7 @@ import deploy from "./deploy";
     .option(
       "-d, --deploy-env <name>",
       "name of the environment you want to deploy. Defaults to the current git branch name.",
-      branch
+      currentEnv
     )
     .option(
       "-e, --env-file <path>",
@@ -23,7 +25,20 @@ import deploy from "./deploy";
     )
     .option("--pre-apply <script>", "Script to run before terraform apply")
     .option("--post-apply <script>", "Script to run after terraform apply")
-    .action(args => deploy(args, branch));
+    .action(args => deploy(args, currentEnv));
+
+  program
+    .command("promote")
+    .option(
+      "--target <branch>",
+      "the name of the branch you want to promote to",
+      currentBranch === "dev"
+        ? "staging"
+        : currentBranch === "staging"
+        ? "master"
+        : "dev"
+    )
+    .action(args => promote(args, currentBranch));
 
   program.parse(process.argv);
 })();

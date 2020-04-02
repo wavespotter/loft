@@ -1,6 +1,6 @@
 {
   "name": "@sofarocean/loft",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Standard build scripts combining Terraform and custom pre- and post- deploy options",
   "main": "build/index.js",
   "scripts": {
@@ -15,6 +15,11 @@
   },
   "author": "Sam Kronick <sam.kronick@sofarocean.com>",
   "license": "ISC",
+  "homepage": "https://github.com/wavespotter/loft",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wavespotter/loft"
+  },
   "dependencies": {
     "chalk": "^3.0.0",
     "child-process-promise": "^2.2.1",

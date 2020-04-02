@@ -1,8 +1,7 @@
-# `@sofarocean/loft`
+## **`loft`** is a set of command line utilities that provide a standard way of managing and deploying infrastructure and code across multiple environments using git, Github, and Terraform.
 
-[![Lofting](https://upload.wikimedia.org/wikipedia/commons/4/4a/Cecil_Beaton_Photographs-_Tyneside_Shipyards%2C_1943_DB88.jpg)](https://en.wikipedia.org/wiki/Lofting)_[**Lofting**](https://en.wikipedia.org/wiki/Lofting) is a drafting technique whereby curved lines are generated, to be used in plans for streamlined objects such as aircraft and boats."_
-
-### **`loft`** is a set of command line utilities that provide a standard way of managing and deploying infrastructure and code across multiple environments using git, Github, and Terraform.
+[![Lofting](https://upload.wikimedia.org/wikipedia/commons/4/4a/Cecil_Beaton_Photographs-_Tyneside_Shipyards%2C_1943_DB88.jpg)](https://en.wikipedia.org/wiki/Lofting)
+_"[**Lofting**](https://en.wikipedia.org/wiki/Lofting) is a drafting technique whereby curved lines are generated, to be used in plans for streamlined objects such as aircraft and boats."_
 
 # Usage
 
@@ -105,6 +104,10 @@ Initialize a project with the standard deployment setup:
 
 - Like `deploy`, but set up environment variables before running test command
 - Ability to set up temporary terraform stack?
+
+## `destroy`
+
+- Wraper for `terraform destroy` that sets variables based on environment and branch, similar to `loft deploy`
 
 ## Other things
 

@@ -3,7 +3,7 @@
 ## `deploy`
 
 ```bash
-npx @sofarocean/code-loft deploy [--pre-apply <script>] [--post-apply <script>]
+npx @sofarocean/loft deploy [--pre-apply <script>] [--post-apply <script>]
 ```
 
 Running this command from your local machine or on a CI/CD server (such as with Github Actions) will:
@@ -20,7 +20,7 @@ The deployment environment can be overridden with the `-d` or `--deploy-env` opt
 For a full list of options, run:
 
 ```bash
-npx @sofarocean/code-loft deploy -h
+npx @sofarocean/loft deploy -h
 ```
 
 ### On a CI/CD server
@@ -29,16 +29,16 @@ When running on a CI/CD server, you can set the `-a` or `--auto-approve` option 
 
 ## Alias
 
-If you find yourself using `code-loft` frequently from the command line, you can create an alias by adding an entry to your `~/.profile`, `~/.bashrc`, or similar:
+If you find yourself using `loft` frequently from the command line, you can create an alias by adding an entry to your `~/.profile`, `~/.bashrc`, or similar:
 
 ```bash
-alias code-loft='npx @sofarocean/code-loft'
+alias loft='npx @sofarocean/loft'
 ```
 
-And then running commands from any directory with:
+And then running commands from any directory such as:
 
 ```bash
-code-loft
+loft deploy
 ```
 
 # TODO

@@ -1,7 +1,7 @@
 {
-  "name": "@sofarocean/code-loft",
+  "name": "@sofarocean/loft",
   "version": "0.3.0",
-  "description": "Standard build script combining Terraform and custom pre- and post- deploy options",
+  "description": "Standard build scripts combining Terraform and custom pre- and post- deploy options",
   "main": "build/index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -11,7 +11,7 @@
     "deploy": "npm publish --access public"
   },
   "bin": {
-    "code-loft": "./build/index.js"
+    "loft": "./build/index.js"
   },
   "author": "Sam Kronick <sam.kronick@sofarocean.com>",
   "license": "ISC",
